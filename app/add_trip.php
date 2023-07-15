@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "samalex";
-$dbname = "test";
+$servername = "db";
+$username = "denis";
+$password = "samm";
+$dbname = "Denis";
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,14 +14,16 @@ if ($conn->connect_error) {
 $region = $_POST['region'];
 $departureDate = $_POST['departure_date'];
 $courierName = $_POST['courier_name'];
-echo $region;
+
+$name_courier = "SELECT * FROM couers WHERE name = '$courierName'";
+$result = $conn->query($name_courier);
+if ($result->num_rows == 0){ echo "Курьера нет в базе данных";}else{
 
 $sql = "SELECT * FROM trips WHERE courier_name = '$courierName' AND departure_date	 = '$departureDate'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0){ echo "У курьера уже есть поездка в этот день.";}
 else
 {
-
     $region = $_POST['region'];
     $departureDate = $_POST['departure_date'];
     $courierName = $_POST['courier_name'];
@@ -49,6 +51,7 @@ else
         echo "Регион не найден!";
     }
 }
+}
 
 $conn->close();
-?>
+echo '<a href="get_trips.html"> Информация о поездках </a>';

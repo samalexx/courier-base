@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Вывод расписания поездок</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#filter').click(function () {
+        var filterDate = $('#filter_date').val();
+
+        $.ajax({
+          url: 'get_trips.php',
+          method: 'POST',
+          data: { filter_date: filterDate },
+          success: function (response) {
+            $('#trips').html(response);
+          }
+        });
+      });
+    });
+  </script>
+  <style>
+    select,
+    input[type=date] {
+      width: 20%;
+      padding: 16px 20px;
+      border: 1px solid black;
+      border-radius: 4px;
+      background-color: #f1f1f1;
+    }
+
+    input[type=button],
+    input[type=submit],
+    input[type=reset] {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    input[type=text] {
+      border: none;
+      border: 1px solid red;
+      width: 20%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    ol,
+    ul {
+      font-size: 30px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-gap: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li> <a href="index.html"> Форма внесения данных в расписание</a></li>
+    <li> <a href="add_courier.html"> Добавить курьера </a></li>
+  </ul>
+
+  <h1>Расписание поездок</h1>
+
+  <label for="filter_date">Фильтр по дате:</label>
+  <input type="date" name="filter_date" id="filter_date">
+  <button id="filter">Применить фильтр</button>
+
+  <h2>Поездки:</h2>
+  <div id="trips"></div>
+</body>
+
+</html>

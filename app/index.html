@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        select,
+        input[type=date] {
+            width: 20%;
+            padding: 16px 20px;
+            border: 1px solid black;
+            border-radius: 4px;
+            background-color: #f1f1f1;
+        }
+
+        input[type=button],
+        input[type=submit],
+        input[type=reset] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        input[type=text] {
+            border: none;
+            border: 1px solid red;
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        ol,
+        ul {
+            font-size: 30px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            grid-gap: 1rem;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>Форма внесения данных в расписание</title>
+</head>
+
+<body>
+    <ul>
+        <li> <a href="get_trips.html"> Информация о поездках </a></li>
+        <li> <a href="add_courier.html"> Добавить курьера </a></li>
+    </ul>
+    <h1>Форма внесения данных в расписание</h1>
+
+    <form action="add_trip.php" method="POST">
+        <label for="region">Регион:</label>
+        <select name="region" id="region">
+            <option value="Санкт-Петербург">Санкт-Петербург</option>
+            <option value="Уфа">Уфа</option>
+            <option value="Нижний Новгород">Нижний Новгород</option>
+            <option value="Владимир">Владимир</option>
+            <option value="Кострома">Кострома</option>
+            <option value="Екатеринбург">Екатеринбург</option>
+            <option value="Ковров">Ковров</option>
+            <option value="Воронеж">Воронеж</option>
+            <option value="Самара">Самара</option>
+            <option value="Астрахань">Астрахань</option>
+        </select>
+
+        <label for="departure_date">Дата выезда из Москвы:</label>
+        <input type="date" name="departure_date" id="departure_date">
+        <label for="courier_name"></label>
+        <input type="text" name="courier_name" id="courier_name">
+        <input type="submit" value="Добавить поездку">
+
+    </form>
+
+</body>
+
+</html>

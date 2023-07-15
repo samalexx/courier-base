@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "samalex";
-$dbname = "test";
+$servername = "db";
+$username = "denis";
+$password = "samm";
+$dbname = "Denis";
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -32,4 +32,5 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
+
 ?>
