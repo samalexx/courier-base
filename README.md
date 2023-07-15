@@ -6,3 +6,7 @@
 git clone https://github.com/samalexx/courier-base.git
 docker-compose up -d
 ```
+
+Далее перейти на ссылку: http://localhost:8000 , где расположен основной функционал Технического Задания.
+
+На данном адресе находится база MySQL: http://localhost:8080/ , где надо будет ввести логин:пароль. (denis:samm)
