@@ -14,7 +14,7 @@ services:
         image: mysql
         restart: always
         volumes:
-            - ./app/test.sql:/docker-entrypoint-initdb.d/dump.sql
+            - ./database/database.sql:/docker-entrypoint-initdb.d/dump.sql
         environment:
             MYSQL_ROOT_PASSWORD: sam
             MYSQL_DATABASE: Denis
