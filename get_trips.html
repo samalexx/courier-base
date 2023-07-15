@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Вывод расписания поездок</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#filter').click(function() {
+        var filterDate = $('#filter_date').val();
+
+        $.ajax({
+          url: 'get_trips.php',
+          method: 'POST',
+          data: { filter_date: filterDate },
+          success: function(response) {
+            $('#trips').html(response);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<h1>Расписание поездок</h1>
+
+<label for="filter_date">Фильтр по дате:</label>
+<input type="date" name="filter_date" id="filter_date">
+<button id="filter">Применить фильтр</button>
+
+<h2>Поездки:</h2>
+<div id="trips"></div>
+</body>
+</html>
