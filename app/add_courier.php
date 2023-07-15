@@ -27,3 +27,8 @@ if ($result->num_rows > 0) {
         echo "Ошибка при добавлении курьера: " . $conn->error;
     }
 }
+echo ' <ul>
+<li> <a href="index.html"> Форма внесения данных в расписание</a></li>
+<li> <a href="add_courier.html"> Добавить курьера </a></li>
+</ul>
+';

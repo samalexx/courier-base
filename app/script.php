@@ -16,7 +16,6 @@ $result = $conn->query($sql);
 $regions = array();
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo '<pre>'; print_r($row['id']); echo '</pre>';
         $regions[$row['id']] = $row['travel_time'];
     }
 }
@@ -49,7 +48,6 @@ while ($currentDate <= $endDate) {
         $sql = "SELECT * FROM trips WHERE courier_name = '$courierName' AND departure_date	 = '$currentDate'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
-            echo "У курьера уже есть поездка в этот день.";
         } else {
            
             $sql = "INSERT INTO trips (region_id, departure_date, courier_name, arrival_date)
@@ -60,4 +58,11 @@ while ($currentDate <= $endDate) {
     }
 }
 $conn->close();
+
+echo "Скрипт отработал";
+echo ' <ul>
+<li> <a href="index.html"> Форма внесения данных в расписание</a></li>
+<li> <a href="add_courier.html"> Добавить курьера </a></li>
+</ul>
+';
 ?>

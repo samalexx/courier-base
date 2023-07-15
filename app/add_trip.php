@@ -55,3 +55,4 @@ else
 
 $conn->close();
 echo '<a href="get_trips.html"> Информация о поездках </a>';
+
